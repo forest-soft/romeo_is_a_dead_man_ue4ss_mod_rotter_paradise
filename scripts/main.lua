@@ -78,7 +78,7 @@ ExecuteInGameThread(function()
 	local dt_enemy_set_list = StaticFindObject("/Game/DataTable/EnemySet/DT_EnemySetList.DT_EnemySetList")
 	if dt_enemy_set_list:IsValid() then
 		
-		-- City Hallのパッチ用にWalkerのデータを用意する。
+		-- Walkerパッチ用に単体のWalkerのデータを用意する。
 		local dummy_walker_row = dt_enemy_set_list:FindRow("TEST_TestZombies")
 		dummy_walker_row.Enemy1 = "ESpawnAICharaID_Walker"
 		dummy_walker_row.Enemy2 = ""
@@ -111,6 +111,39 @@ ExecuteInGameThread(function()
 		dummy_walker_row.Enemy29 = ""
 		dummy_walker_row.Enemy30 = ""
 		
+		-- Tankパッチ用に単体のTankのデータを用意する。
+		local dummy_tank_row = dt_enemy_set_list:FindRow("TEST_MultiTypeZombies")
+		dummy_tank_row.Enemy1 = "ESpawnAICharaID_TankZombie"
+		dummy_tank_row.Enemy2 = ""
+		dummy_tank_row.Enemy3 = ""
+		dummy_tank_row.Enemy4 = ""
+		dummy_tank_row.Enemy5 = ""
+		dummy_tank_row.Enemy6 = ""
+		dummy_tank_row.Enemy7 = ""
+		dummy_tank_row.Enemy8 = ""
+		dummy_tank_row.Enemy9 = ""
+		dummy_tank_row.Enemy10 = ""
+		dummy_tank_row.Enemy11 = ""
+		dummy_tank_row.Enemy12 = ""
+		dummy_tank_row.Enemy13 = ""
+		dummy_tank_row.Enemy14 = ""
+		dummy_tank_row.Enemy15 = ""
+		dummy_tank_row.Enemy16 = ""
+		dummy_tank_row.Enemy17 = ""
+		dummy_tank_row.Enemy18 = ""
+		dummy_tank_row.Enemy19 = ""
+		dummy_tank_row.Enemy20 = ""
+		dummy_tank_row.Enemy21 = ""
+		dummy_tank_row.Enemy22 = ""
+		dummy_tank_row.Enemy23 = ""
+		dummy_tank_row.Enemy24 = ""
+		dummy_tank_row.Enemy25 = ""
+		dummy_tank_row.Enemy26 = ""
+		dummy_tank_row.Enemy27 = ""
+		dummy_tank_row.Enemy28 = ""
+		dummy_tank_row.Enemy29 = ""
+		dummy_tank_row.Enemy30 = ""
+		
 		
 		local target_enemy_set_id_list = {
 			"Walker",
@@ -129,7 +162,6 @@ ExecuteInGameThread(function()
 			"GekkeoZombie",
 			"BirdZombie",
 			"Jelly",
-			
 			"VS_DeadBurg_WP_EnemySet_001",
 			"VS_DeadBurg_WP_EnemySet_002",
 			"VS_DeadBurg_WP_EnemySet_003",
@@ -303,28 +335,25 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 	if target_object:IsValid() then
 		
 		-- FullNameチェック用
-		--[[
+		
 		ExecuteWithDelay(100, function()
 			print(target_object:GetFullName())
 			print(target_object.mEnemySetID:ToString())
 		end)
-		]]
+		
 		
 		-- local full_name_prefix = "BP_SevTargetPoint_EnemySet_C ";
 		-- local target_path = string.sub(target_object:GetFullName(), string.len(full_name_prefix))
 		-- print(target_path)
 		
 		
-
-		
-		
-		local city_hall_walker_patch_target_class_list = {
-			-- 最初のファーストロッター戦でエリア外にロッターが出てしまうので書き換えないようにする。
+		local walker_patch_target_class_list = {
+			-- 最初のファーストロッター戦でエリア外にロッターがハミ出る。
 			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2007637712",
 			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2010096713",
 			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2013145714",
 			
-			
+			-- CHAPTER 2の最初のロッターが飛び降りてくるところで敵が出てこなくてハマる。
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_2_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_0",
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_2_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_1",
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_3_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_0",
@@ -340,19 +369,50 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_8_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_0",
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_8_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_1",
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_1",
+			
+			-- CHAPTER 6の教会内のパニッシャー戦の所でエリア外にロッターがハミ出る。
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1231675311",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1263938313",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1272261314",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1287315315",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1292856316",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1297767317",
+		}
+		
+		local tank_patch_target_class_list = {
+			-- CHAPTER 6の骨の柱の先の隠し通路のFlabを出現させる。(出現させないとバッヂが取れなくなる。)
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/05ONK8QHWQAFDQYZL7H6CJ22S.OWL_Guru:PersistentLevel.SevTargetPoint_Enemy_UAID_047C160FF2A8361002_9e392988188d8fc6_2129200124",
+			
+			-- CHAPTER 6のボス戦後の脱出時にFlabが出てこなくてハマる。
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/8C0KZE6Y9W1QPE0DYKU4AXP23.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF2A8781D02_aca934691d95e35b_1930050861",
 		}
 		
 		local is_target = false
 		local target_path = nil
-		for i, path in ipairs(city_hall_walker_patch_target_class_list) do
+		local enemy_set_id = nil
+		
+		for i, path in ipairs(walker_patch_target_class_list) do
 			-- print(target_object:GetFullName())
 			-- print(("BP_SevTargetPoint_EnemySet_C " .. path))
 			if ("BP_SevTargetPoint_EnemySet_C " .. path) == target_object:GetFullName() then
 				is_target = true
 				target_path = path
+				enemy_set_id = "TEST_TestZombies"
 				break
 			end
 		end
+		
+		for i, path in ipairs(tank_patch_target_class_list) do
+			-- print(target_object:GetFullName())
+			-- print(("BP_SevTargetPoint_EnemySet_C " .. path))
+			if ("BP_SevTargetPoint_EnemySet_C " .. path) == target_object:GetFullName() then
+				is_target = true
+				target_path = path
+				enemy_set_id = "TEST_MultiTypeZombies"
+				break
+			end
+		end
+		
 		
 		if target_path == nil then
 			-- print("対象外：" .. target_object:GetFullName())
@@ -372,7 +432,7 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 			end
 			
 			print("パッチ実行:" .. patch_target_object.mEnemySetID:ToString())
-			patch_target_object.mEnemySetID = FName("TEST_TestZombies")
+			patch_target_object.mEnemySetID = FName(enemy_set_id)
 		end
 		ExecuteWithDelay(1, patch)
 		
