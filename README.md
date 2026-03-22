@@ -71,7 +71,7 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
          * StaticConstructObject.lua
        * UE4SS.dll
        * UE4SS-settings.ini
-     * dwmapi.dll　←「3.」でコピーしたファイル  
+     * dwmapi.dll　←「2.」でコピーしたファイル  
      * SevGame-Win64-Shipping.exe  
 9. ゲームを起動して適当なステージに移動し、ロッターが増えていれば成功です！  
    ※敵の数が増えることによってそれなりに重くなるので、セーブデータをロードする前に画質設定を落として様子を見てください。  
