@@ -82,8 +82,8 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
 「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise」フォルダ直下に「enabled.txt」のファイルがあるとUE4SSが起動時に自動でMODを読み込みます。  
 なので「enabled.txt」を「_enabled.txt」等の別の名前に変更するとMODを無効化できます。  
 
-UE4SSを無効化したい場合は「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64」直下にある「dwmapi.dll」の拡張子を「dwmapi.dll_xxx」という感じで「dll」以外に変更してください。
-そうするとUnreal Engineの動的DLL読み込み機能でUE4SSが読み込まれなくなります。
+UE4SSを無効化したい場合は「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64」直下にある「dwmapi.dll」の拡張子を「dwmapi.dll_xxx」という感じで「dll」以外に変更してください。  
+そうするとUnreal Engineの動的DLL読み込み機能でUE4SSが読み込まれなくなります。  
 
 # 出現する敵を変更する方法  
 「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise\scripts\main.lua」のファイルがMODの本体です。  
