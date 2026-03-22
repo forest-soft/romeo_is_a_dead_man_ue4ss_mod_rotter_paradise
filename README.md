@@ -78,38 +78,38 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
    ショッピングモールのステージがわかりやすいです。  
    うまく行かない場合はUE4SSフォルダ直下に生成されている「UE4SS.log」に何かエラーが出ていないかチェックしてみてください。  
 
-# MODを無効化する方法
-「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise」フォルダ直下に「enabled.txt」のファイルがあるとUE4SSが起動時に自動でMODを読み込みます。
-なので「enabled.txt」を「_enabled.txt」等の別の名前に変更するとMODを無効化できます。
-再度有効化したい場合は「enabled.txt」にファイル名を戻してください。
+# MODを無効化する方法  
+「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise」フォルダ直下に「enabled.txt」のファイルがあるとUE4SSが起動時に自動でMODを読み込みます。  
+なので「enabled.txt」を「_enabled.txt」等の別の名前に変更するとMODを無効化できます。  
+再度有効化したい場合は「enabled.txt」にファイル名を戻してください。  
 
-# 出現する敵を変更する方法
-「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise\scripts\main.lua」のファイルがMODの本体です。
-このファイルをテキストエディタで開いてください。
+# 出現する敵を変更する方法  
+「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise\scripts\main.lua」のファイルがMODの本体です。  
+このファイルをテキストエディタで開いてください。  
 
-22行目あたりから
-～～～～～～～～～～～～～～～～～～～～～～～
-local setting_enemy1 = "ESpawnAICharaID_Walker"
-local setting_enemy2 = "ESpawnAICharaID_Walker"
-local setting_enemy3 = "ESpawnAICharaID_Walker"
-local setting_enemy4 = "ESpawnAICharaID_Walker"
-local setting_enemy5 = "ESpawnAICharaID_Walker"
-local setting_enemy6 = "ESpawnAICharaID_Walker"
-local setting_enemy7 = "ESpawnAICharaID_Walker"
-local setting_enemy8 = "ESpawnAICharaID_Walker"
-local setting_enemy9 = "ESpawnAICharaID_Walker"
-local setting_enemy10 = "ESpawnAICharaID_Walker"
+22行目あたりから  
+～～～～～～～～～～～～～～～～～～～～～～～  
+local setting_enemy1 = "ESpawnAICharaID_Walker"  
+local setting_enemy2 = "ESpawnAICharaID_Walker"  
+local setting_enemy3 = "ESpawnAICharaID_Walker"  
+local setting_enemy4 = "ESpawnAICharaID_Walker"  
+local setting_enemy5 = "ESpawnAICharaID_Walker"  
+local setting_enemy6 = "ESpawnAICharaID_Walker"  
+local setting_enemy7 = "ESpawnAICharaID_Walker"  
+local setting_enemy8 = "ESpawnAICharaID_Walker"  
+local setting_enemy9 = "ESpawnAICharaID_Walker"  
+local setting_enemy10 = "ESpawnAICharaID_Walker"  
 
-local setting_spawner_enemy = "ESpawnAICharaID_Walker"
-～～～～～～～～～～～～～～～～～～～～～～～
-というように出現する敵を設定できるようにしてあります。
-「Walker」 = 「Rotter」です。
-設定エリアのすぐ下に敵のIDや設定例を書いてあるので、好きなように書き換えてみてください！
+local setting_spawner_enemy = "ESpawnAICharaID_Walker"  
+～～～～～～～～～～～～～～～～～～～～～～～  
+というように出現する敵を設定できるようにしてあります。  
+「Walker」 = 「Rotter」です。  
+設定エリアのすぐ下に敵のIDや設定例を書いてあるので、好きなように書き換えてみてください！  
 
-ゲーム起動中に書き換えても反映されないのでいったんゲームを再起動してください。
-ゲームの再起動が面倒な場合はUE4SSの「UE4SS-settings.ini」内の
-GuiConsoleEnabled = 0
-GuiConsoleVisible = 0
-を「1」にして、UE4SSのコンソールウインドウを表示してください。
-このコンソールウインドウの「Console」タブの中の「Restart All Mods」というボタンを押すと編集内容を即反映することができます。
-その後ロードやステージに入りなおすと書き換えた敵が出てきます！
+ゲーム起動中に書き換えても反映されないのでいったんゲームを再起動してください。  
+ゲームの再起動が面倒な場合はUE4SSの「UE4SS-settings.ini」内の  
+GuiConsoleEnabled = 0  
+GuiConsoleVisible = 0  
+を「1」にして、UE4SSのコンソールウインドウを表示してください。  
+このコンソールウインドウの「Console」タブの中の「Restart All Mods」というボタンを押すと編集内容を即反映することができます。  
+その後ロードやステージに入りなおすと書き換えた敵が出てきます！  
