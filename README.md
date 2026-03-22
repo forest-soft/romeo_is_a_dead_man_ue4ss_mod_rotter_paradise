@@ -25,8 +25,8 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
     * https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/experimental-latest
     * ページの一番下の「Assets」欄を開き、「UE4SS_v3.0.1-942-gc0335505.zip」をダウンロードしてください。  
    ファイル名の「942-gc0335505」の部分はダウンロードするタイミングによって変化します。  
-2. 「UE4SS_v3.0.1-942-gc0335505.zip」を解凍して出てきた以下のフォルダ&ファイルをROMEO IS A DEAD MANのインストールフォルダにある「SevGame-Win64-Shipping.exe」と同じ階層にコピーしてください。
-「SevGame-Win64-Shipping.exe」は「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64」等にあります。
+2. 「UE4SS_v3.0.1-942-gc0335505.zip」を解凍して出てきた以下のフォルダ&ファイルをROMEO IS A DEAD MANのインストールフォルダにある「SevGame-Win64-Shipping.exe」と同じ階層にコピーしてください。  
+「SevGame-Win64-Shipping.exe」は「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64」等にあります。  
     * ue4ss  
     * dwmapi.dll  
 4. 「UE4SS_Signatures_ROMEO_IS_A_DEAD_MAN.zip」をダウンロードしてください。  
