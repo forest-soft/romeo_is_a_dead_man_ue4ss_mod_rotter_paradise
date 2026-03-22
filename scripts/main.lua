@@ -7,10 +7,15 @@ v1.0.0
 --[[
 デフォルトではロッター(内部名ではWalker)が10倍出現するようにしてあります。
 「setting_enemy1～10」の右側に書いてある「ESpawnAICharaID_Walker」を別の敵の名前に変えればロッター以外も出現させることができます。
+※ラストステージでは敵を2体以上設定するとなぜか出現しなくなってしまうため、「setting_enemy1」に設定した敵のみ出現するようにしてあります。
+
 「setting_spawner_enemy」の行では空中に浮いてるスポナーから出てくる敵を指定できます。
+
 
 By default, Rotters (internal name Walker) are set to spawn 10 times more often.
 You can spawn enemies other than Rotters by changing "ESpawnAICharaID_Walker" written to the right of "setting_enemy1-10" to the name of a different enemy.
+*In the last stage, if you set more than two enemies, they inexplicably stop appearing, so only the enemy set to "setting_enemy1" will appear.
+
 The "setting_spawner_enemy" line allows you to specify which enemies will spawn from floating spawners.
 ]]
 
@@ -137,7 +142,7 @@ ExecuteInGameThread(function()
 	if dt_enemy_set_list:IsValid() then
 		
 		-- Walkerパッチ用に単体のWalkerのデータを用意する。
-		local dummy_walker_row = dt_enemy_set_list:FindRow("TEST_TestZombies")
+		local dummy_walker_row = dt_enemy_set_list:FindRow("TEST_Walkers")
 		dummy_walker_row.Enemy1 = "ESpawnAICharaID_Walker"
 		dummy_walker_row.Enemy2 = ""
 		dummy_walker_row.Enemy3 = ""
@@ -202,11 +207,44 @@ ExecuteInGameThread(function()
 		dummy_tank_row.Enemy29 = ""
 		dummy_tank_row.Enemy30 = ""
 		
+		-- 単体の敵パッチ用のデータを用意する。
+		local single_enemy_row = dt_enemy_set_list:FindRow("TEST_TestZombies")
+		single_enemy_row.Enemy1 = setting_enemy1
+		single_enemy_row.Enemy2 = ""
+		single_enemy_row.Enemy3 = ""
+		single_enemy_row.Enemy4 = ""
+		single_enemy_row.Enemy5 = ""
+		single_enemy_row.Enemy6 = ""
+		single_enemy_row.Enemy7 = ""
+		single_enemy_row.Enemy8 = ""
+		single_enemy_row.Enemy9 = ""
+		single_enemy_row.Enemy10 = ""
+		single_enemy_row.Enemy11 = ""
+		single_enemy_row.Enemy12 = ""
+		single_enemy_row.Enemy13 = ""
+		single_enemy_row.Enemy14 = ""
+		single_enemy_row.Enemy15 = ""
+		single_enemy_row.Enemy16 = ""
+		single_enemy_row.Enemy17 = ""
+		single_enemy_row.Enemy18 = ""
+		single_enemy_row.Enemy19 = ""
+		single_enemy_row.Enemy20 = ""
+		single_enemy_row.Enemy21 = ""
+		single_enemy_row.Enemy22 = ""
+		single_enemy_row.Enemy23 = ""
+		single_enemy_row.Enemy24 = ""
+		single_enemy_row.Enemy25 = ""
+		single_enemy_row.Enemy26 = ""
+		single_enemy_row.Enemy27 = ""
+		single_enemy_row.Enemy28 = ""
+		single_enemy_row.Enemy29 = ""
+		single_enemy_row.Enemy30 = ""
+		
 		--[[
 		・DT_EnemySetListのIDリスト
-		TEST_TestZombies
-		TEST_Walkers
-		TEST_MultiTypeZombies
+		TEST_TestZombies　←単体の敵パッチで使用
+		TEST_Walkers　←Walkerパッチで使用
+		TEST_MultiTypeZombies　←Tankパッチに使用
 		TEST_StrobePhantasm
 		WALKER
 		Religious
@@ -485,15 +523,8 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 		-- local target_path = string.sub(target_object:GetFullName(), string.len(full_name_prefix))
 		-- print(target_path)
 		
-		
-		
 		local walker_patch_target_class_list = {
-			-- 最初のファーストロッター戦でエリア外にロッターがハミ出る。
-			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2007637712",
-			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2010096713",
-			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2013145714",
-			
-			-- CHAPTER 2の最初のロッターが飛び降りてくるところで敵が出てこなくてハマる。
+			-- CHAPTER 2の最初のロッターが飛び降りてくるところでロッターが出てこなくてハマる。
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_2_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_0",
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_2_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_1",
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_3_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_0",
@@ -510,13 +541,6 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_8_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_1",
 			"/Game/Map/RouteMap/CH_Juliet/OWL_Juliet/_Generated_/B219P6HYIUUZPN9XFZ1ULKKCK.OWL_Juliet:PersistentLevel.BP_SevTargetPoint_EnemySet_GEN_VARIABLE_BP_SevTargetPoint_EnemySet_C_CAT_1",
 			
-			-- CHAPTER 6の教会内のパニッシャー戦の所でエリア外にロッターがハミ出る。
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1231675311",
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1263938313",
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1272261314",
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1287315315",
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1292856316",
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1297767317",
 			
 			-- CHAPTER 7の最初のエントランスのDJシーンでロッターが出てこなくてハマる。
 			"/Game/Map/RouteMap/CH_GrimReaper/OWL_GrimReaper/_Generated_/4IMIMUG84M1Y7BPSJC5S6SJI7.OWL_GrimReaper:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF29F1D1D02_855478004eaf65da_1822361451",
@@ -552,6 +576,32 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 			"/Game/Map/RouteMap/CH_GrimReaper/OWL_GrimReaper/_Generated_/4IMIMUG84M1Y7BPSJC5S6SJI7.OWL_GrimReaper:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF29F741D02_855478004eaf65da_1371455734",
 			"/Game/Map/RouteMap/CH_GrimReaper/OWL_GrimReaper/_Generated_/4IMIMUG84M1Y7BPSJC5S6SJI7.OWL_GrimReaper:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF29F741D02_855478004eaf65da_1376343735",
 			"/Game/Map/RouteMap/CH_GrimReaper/OWL_GrimReaper/_Generated_/4IMIMUG84M1Y7BPSJC5S6SJI7.OWL_GrimReaper:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF29F741D02_855478004eaf65da_1381362736",
+		}
+		
+		local tank_patch_target_class_list = {
+			-- CHAPTER 6の骨の柱の先の隠し通路のFlabを出現させる。(出現させないとバッヂが取れなくなる。)
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/05ONK8QHWQAFDQYZL7H6CJ22S.OWL_Guru:PersistentLevel.SevTargetPoint_Enemy_UAID_047C160FF2A8361002_9e392988188d8fc6_2129200124",
+			
+			
+			-- CHAPTER 6のボス戦後の脱出時にFlabが出てこなくてハマる。
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/8C0KZE6Y9W1QPE0DYKU4AXP23.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF2A8781D02_aca934691d95e35b_1930050861",
+		}
+		
+		local single_patch_target_class_list = {
+			-- 最初のファーストロッター戦でエリア外にロッターがハミ出る。
+			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2007637712",
+			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2010096713",
+			"/Game/Map/Cassini/OWL_CassiniSt/_Generated_/7ZBY7MXT8B2GRQC91JEGX9SAC.OWL_CassiniSt:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_7085C29403A8E48F02_c8fc790242ec4bde_2013145714",
+			
+			
+			-- CHAPTER 6の教会内のパニッシャー戦の所でエリア外にロッターがハミ出る。
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1231675311",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1263938313",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1272261314",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1287315315",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1292856316",
+			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/3C4COUCFY1R43G0IKR8UE44G7.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_04421A9A7D48180802_40dbbc9cab6d8a24_1297767317",
+			
 			
 			-- CHAPTER 8(亜空間ヒルズ)は複数体設定すると敵が出てこなくなる。
 			"/Game/Map/RouteMap/CH_SubHuman/OWL_SubHuman/_Generated_/DBVECI11GWN3ZGUHLRPG6STJG.OWL_SubHuman:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF29FD13702_dde2451dade2e1a2_1529554854",
@@ -729,29 +779,23 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 			"/Game/Map/RouteMap/CH_SubHuman/OWL_SubHuman/_Generated_/95SYS4BRL47LIT67XPRZUGI03.OWL_SubHuman:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF29FEC6702_a4ff769c8b73584a_1239162327",
 		}
 		
-		local tank_patch_target_class_list = {
-			-- CHAPTER 6の骨の柱の先の隠し通路のFlabを出現させる。(出現させないとバッヂが取れなくなる。)
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/05ONK8QHWQAFDQYZL7H6CJ22S.OWL_Guru:PersistentLevel.SevTargetPoint_Enemy_UAID_047C160FF2A8361002_9e392988188d8fc6_2129200124",
-			
-			-- CHAPTER 6のボス戦後の脱出時にFlabが出てこなくてハマる。
-			"/Game/Map/RouteMap/CH_Guru/OWL_Guru/_Generated_/8C0KZE6Y9W1QPE0DYKU4AXP23.OWL_Guru:PersistentLevel.BP_SevTargetPoint_EnemySet_C_UAID_047C160FF2A8781D02_aca934691d95e35b_1930050861",
-		}
-		
 		local is_target = false
 		local target_path = nil
 		local enemy_set_id = nil
 		
+		-- Walkerパッチ
 		for i, path in ipairs(walker_patch_target_class_list) do
 			-- print(target_object:GetFullName())
 			-- print(("BP_SevTargetPoint_EnemySet_C " .. path))
 			if ("BP_SevTargetPoint_EnemySet_C " .. path) == target_object:GetFullName() then
 				is_target = true
 				target_path = path
-				enemy_set_id = "TEST_TestZombies"
+				enemy_set_id = "TEST_Walkers"
 				break
 			end
 		end
 		
+		-- Tankパッチ
 		for i, path in ipairs(tank_patch_target_class_list) do
 			-- print(target_object:GetFullName())
 			-- print(("BP_SevTargetPoint_EnemySet_C " .. path))
@@ -763,6 +807,17 @@ NotifyOnNewObject("/Game/Blueprint/Enemy/BP_SevTargetPoint_EnemySet.BP_SevTarget
 			end
 		end
 		
+		-- 単体の敵パッチ
+		for i, path in ipairs(single_patch_target_class_list) do
+			-- print(target_object:GetFullName())
+			-- print(("BP_SevTargetPoint_EnemySet_C " .. path))
+			if ("BP_SevTargetPoint_EnemySet_C " .. path) == target_object:GetFullName() then
+				is_target = true
+				target_path = path
+				enemy_set_id = "TEST_TestZombies"
+				break
+			end
+		end
 		
 		if target_path == nil then
 			-- print("対象外：" .. target_object:GetFullName())
