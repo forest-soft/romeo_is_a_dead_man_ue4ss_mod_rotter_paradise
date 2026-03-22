@@ -58,7 +58,7 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
 8. 「XXX.zip」を解凍して出てきた以下のフォルダをUE4SSのModsフォルダ直下にコピーしてください。
    * romeo_is_a_dead_man_ue4ss_mod_rotter_paradise
 
-   最終的に以下のようなフォルダ&ファイル構成になっていればOKです。
+   最終的に以下のようなフォルダ&ファイル構成になっていればOKです。  
    「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN」  
    * SevGame  
      * Binaries
