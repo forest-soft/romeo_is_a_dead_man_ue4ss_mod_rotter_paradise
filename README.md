@@ -54,9 +54,8 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
    72行目：MinorVersion = 6 
 6. 「Rotter Paradise MOD」をダウンロードしてください。
    * https://github.com/forest-soft/romeo_is_a_dead_man_ue4ss_mod_rotter_paradise/releases  
-   最新バージョンの「Assets」欄を開き、「Source code (zip) 」から「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise-1.0.0.zip」をダウンロードしてください。  
-   ※ファイル名末尾のバージョン番号はタイミングによって変わります。  
-7. 「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise-1.0.0.zip」を解凍して出てきた以下のフォルダをUE4SSのModsフォルダ直下にコピーしてください。  
+   最新バージョンの「Assets」欄を開き、「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise.zip」をダウンロードしてください。  
+7. 「romeo_is_a_dead_man_ue4ss_mod_rotter_paradise.zip」を解凍して出てきた以下のフォルダをUE4SSのModsフォルダ直下にコピーしてください。  
    * romeo_is_a_dead_man_ue4ss_mod_rotter_paradise
 
    最終的に以下のようなフォルダ&ファイル構成になっていればOKです。  
@@ -155,9 +154,8 @@ UE4SS was tested with version "v3.0.1-942" as of March 22, 2026.
    72行目：MinorVersion = 6 
 6. Download the "Rotter Paradise MOD".  
    * https://github.com/forest-soft/romeo_is_a_dead_man_ue4ss_mod_rotter_paradise/releases  
-   Open the "Assets" section of the latest version and download "romeo_is_a_dead_man_ue4ss_mod_rotter_paradise-1.0.0.zip" from "Source code (zip)".  
-   *The version number at the end of the file name may change depending on the timing.  
-7. Unzip "romeo_is_a_dead_man_ue4ss_mod_rotter_paradise-1.0.0.zip" and copy the following folders directly into the Mods folder of UE4SS.  
+   Open the "Assets" section of the latest version and download "romeo_is_a_dead_man_ue4ss_mod_rotter_paradise.zip".  
+7. Unzip "romeo_is_a_dead_man_ue4ss_mod_rotter_paradise.zip" and copy the following folders directly into the Mods folder of UE4SS.  
    * romeo_is_a_dead_man_ue4ss_mod_rotter_paradise
 
    The final folder and file structure should look like this:  
