@@ -18,6 +18,15 @@ It changes all the enemies you encounter along the way to "Rotter" and increases
 
 # 動作環境
 Windows10、Steam版で動作確認をしました。  
-UE4SSは2026年03月22日時点の「v3.0.1 Beta」にて動作確認をしました。  
+UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしました。  
 
-
+# 使い方
+1. 「UE4SS v3.0.1 Beta」をダウンロードしてください。
+    * https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/experimental-latest
+    * ページの一番下の「Assets」欄を開き、「UE4SS_v3.0.1-942-gc0335505.zip」をダウンロードしてください。  
+   ファイル名の「942-gc0335505」の部分はダウンロードするタイミングによって変化します。  
+2. 上記のzipファイルを解凍して出てきた以下のフォルダ&ファイルをROMEO IS A DEAD MANのインストールフォルダにある「SevGame-Win64-Shipping.exe」と同じ階層にコピーしてください。
+「SevGame-Win64-Shipping.exe」は「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64」等にあります。
+    * ue4ss  
+    * dwmapi.dll  
+  
