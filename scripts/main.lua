@@ -1,76 +1,51 @@
 print("[Rotter Paradise] OK")
 
 
+local setting_enemy1 = "ESpawnAICharaID_Walker"
+local setting_enemy2 = "ESpawnAICharaID_Walker"
+local setting_enemy3 = "ESpawnAICharaID_Walker"
+local setting_enemy4 = "ESpawnAICharaID_Walker"
+local setting_enemy5 = "ESpawnAICharaID_Walker"
+local setting_enemy6 = "ESpawnAICharaID_Walker"
+local setting_enemy7 = "ESpawnAICharaID_Walker"
+local setting_enemy8 = "ESpawnAICharaID_Walker"
+local setting_enemy9 = "ESpawnAICharaID_Walker"
+local setting_enemy10 = "ESpawnAICharaID_Walker"
+
+--[[
+■Enemy List
+ESpawnAICharaID_Walker：ロッター(Rotter)
+ESpawnAICharaID_TomatoHead：トマトヘッド(Tomato Head)
+ESpawnAICharaID_BuffZombie：ダンサー(Negative Dancer)
+ESpawnAICharaID_GekkoZombie：ゲッコー(Gecko)
+ESpawnAICharaID_TankZombie：フラブ(Flab)
+ESpawnAICharaID_Mantis：マンティス(Mantis)
+ESpawnAICharaID_Jelly：ジェリー(Jelly)
+ESpawnAICharaID_ZombieBlack：サイコ・ロッター(Psycho Rotter)
+ESpawnAICharaID_BirdZombie：フレッシュペッカー(Flesh Pecker)
+ESpawnAICharaID_PunisherPhase1：パニッシャー(Punisher)
+ESpawnAICharaID_PunisherPhase2：エクセキューショナー(Executioner)
+ESpawnAICharaID_WeakFirstRotter：弱いファーストロッター(WeakFirstRotter)
+]]
+
+
+
 
 
 --[[
-■メモ
-・DT_EnemySetListのIDリスト
-TEST_TestZombies
-TEST_Walkers
-TEST_MultiTypeZombies
-TEST_StrobePhantasm
-WALKER
-Religious
-WalkerStrong
-TankZombi
-TomatoHead
-BuffZombi
-Punisher_1st
-Punisher_2nd
-ProtoBurning
-SupportZombi
-BossGuru
-BossMayorHuman
-Generator_TypeA
-Generator_TypeB
-BossMayor
-HandgunWalker
-RifleWalker
-ZombiBlack
-GekkeoZombie
-BirdZombie
-JELLY
-VS_DeadBurg_WP_EnemySet_001
-VS_DeadBurg_WP_EnemySet_002
-VS_DeadBurg_WP_EnemySet_003
-VS_DeadBurg_WP_EnemySet_004
-VS_DeadBurg_WP_EnemySet_005
-VS_DeadBurg_WP_EnemySet_006
-VS_DeadBurg_WP_EnemySet_007
-VS_DeadBurg_WP_EnemySet_008
-DeadBurg_CH02_GuruHouse1F01
-DeadBurg_CH02_GuruHouse1F02
-DeadBurg_CH02_GuruHouse2F01
-DeadBurg_CH02_GuruHouse2F02
-DeadBurg_CH02_CultChurch
-DeadBurg_CH02_CultSquare01
-DeadBurg_CH02_CultSquare02
-DeadBurg_CH02_CultSquare03
-DeadBurg_CH02_CultSquare04
-DeadBurg_CH02_CultSquare05
-DeadBurg_CH02_CultSquare_Presentation_01
-DeadBurg_CH02_CultSquare_Presentation_02
-DeadBurg_CH01_Cemetery01
-DeadBurg_CH01_Cemetery02
-DeadBurg_CH01_Cemetery_DefBattle_01
-DeadBurg_CH01_Cemetery_DefBattle_02
-Test_Walker_Cult
-DeadBurg_1968_AroundCultArea_01
-DeadBurg_1968_AroundCultArea_02
-DeadBurg_1968_AroundCultArea_03
-DeadBurg_1968_AroundCultArea_04
-BossReanimatedOldBrother
-BossReanimatedYoungBrother
-BurningRotterFirst
-FirstRotter
-WeakFirstRotter
-DoctorHill
-StrobePhantasm
-SubHuman
-MANTIS
-GiantBody
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
+～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～～
 ]]
+
+
+
+
+
+
+
+
+
 
 ExecuteInGameThread(function()
 	
@@ -144,7 +119,73 @@ ExecuteInGameThread(function()
 		dummy_tank_row.Enemy29 = ""
 		dummy_tank_row.Enemy30 = ""
 		
-		
+		--[[
+		・DT_EnemySetListのIDリスト
+		TEST_TestZombies
+		TEST_Walkers
+		TEST_MultiTypeZombies
+		TEST_StrobePhantasm
+		WALKER
+		Religious
+		WalkerStrong
+		TankZombi
+		TomatoHead
+		BuffZombi
+		Punisher_1st
+		Punisher_2nd
+		ProtoBurning
+		SupportZombi
+		BossGuru
+		BossMayorHuman
+		Generator_TypeA
+		Generator_TypeB
+		BossMayor
+		HandgunWalker
+		RifleWalker
+		ZombiBlack
+		GekkeoZombie
+		BirdZombie
+		JELLY
+		VS_DeadBurg_WP_EnemySet_001
+		VS_DeadBurg_WP_EnemySet_002
+		VS_DeadBurg_WP_EnemySet_003
+		VS_DeadBurg_WP_EnemySet_004
+		VS_DeadBurg_WP_EnemySet_005
+		VS_DeadBurg_WP_EnemySet_006
+		VS_DeadBurg_WP_EnemySet_007
+		VS_DeadBurg_WP_EnemySet_008
+		DeadBurg_CH02_GuruHouse1F01
+		DeadBurg_CH02_GuruHouse1F02
+		DeadBurg_CH02_GuruHouse2F01
+		DeadBurg_CH02_GuruHouse2F02
+		DeadBurg_CH02_CultChurch
+		DeadBurg_CH02_CultSquare01
+		DeadBurg_CH02_CultSquare02
+		DeadBurg_CH02_CultSquare03
+		DeadBurg_CH02_CultSquare04
+		DeadBurg_CH02_CultSquare05
+		DeadBurg_CH02_CultSquare_Presentation_01
+		DeadBurg_CH02_CultSquare_Presentation_02
+		DeadBurg_CH01_Cemetery01
+		DeadBurg_CH01_Cemetery02
+		DeadBurg_CH01_Cemetery_DefBattle_01
+		DeadBurg_CH01_Cemetery_DefBattle_02
+		Test_Walker_Cult
+		DeadBurg_1968_AroundCultArea_01
+		DeadBurg_1968_AroundCultArea_02
+		DeadBurg_1968_AroundCultArea_03
+		DeadBurg_1968_AroundCultArea_04
+		BossReanimatedOldBrother
+		BossReanimatedYoungBrother
+		BurningRotterFirst
+		FirstRotter
+		WeakFirstRotter
+		DoctorHill
+		StrobePhantasm
+		SubHuman
+		MANTIS
+		GiantBody
+		]]
 		local target_enemy_set_id_list = {
 			"Walker",
 			"Religious",
@@ -195,18 +236,16 @@ ExecuteInGameThread(function()
 		for i, enemy_set_id in ipairs(target_enemy_set_id_list) do
 			local target_row = dt_enemy_set_list:FindRow(enemy_set_id)
 			
-			target_row.Enemy1 = "ESpawnAICharaID_Walker"
-			target_row.Enemy2 = "ESpawnAICharaID_Walker"
-			target_row.Enemy3 = "ESpawnAICharaID_Walker"
-			
-			target_row.Enemy4 = "ESpawnAICharaID_Walker"
-			target_row.Enemy5 = "ESpawnAICharaID_Walker"
-			
-			target_row.Enemy6 = "ESpawnAICharaID_Walker"
-			target_row.Enemy7 = "ESpawnAICharaID_Walker"
-			target_row.Enemy8 = "ESpawnAICharaID_Walker"
-			target_row.Enemy9 = "ESpawnAICharaID_Walker"
-			target_row.Enemy10 = "ESpawnAICharaID_Walker"
+			target_row.Enemy1 = setting_enemy1
+			target_row.Enemy2 = setting_enemy2
+			target_row.Enemy3 = setting_enemy3
+			target_row.Enemy4 = setting_enemy4
+			target_row.Enemy5 = setting_enemy5
+			target_row.Enemy6 = setting_enemy6
+			target_row.Enemy7 = setting_enemy7
+			target_row.Enemy8 = setting_enemy8
+			target_row.Enemy9 = setting_enemy9
+			target_row.Enemy10 = setting_enemy10
 			
 			-- 11以降にセットすると敵が出てこなくなる。
 			--[[
