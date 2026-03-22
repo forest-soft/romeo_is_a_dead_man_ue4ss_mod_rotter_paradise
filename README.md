@@ -42,6 +42,15 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
    　∟LICENSE  
    　∟UE4SS.dll  
    　∟UE4SS-settings.ini
-5. 「Rotter Paradise MOD」をダウンロードしてください。
+5. UE4SSのフォルダ直下にある「UE4SS-settings.ini」を以下のように書き換えてください。  
+   * Before  
+   71行目：[EngineVersionOverride]  
+   72行目：MajorVersion =   
+   72行目：MinorVersion =  
+   * After  
+   71行目：[EngineVersionOverride]  
+   72行目：MajorVersion = 5  
+   72行目：MinorVersion = 6 
+7. 「Rotter Paradise MOD」をダウンロードしてください。
    * https://github.com/forest-soft/romeo_is_a_dead_man_ue4ss_mod_rotter_paradise/releases
    リリース作る。
