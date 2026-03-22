@@ -29,4 +29,19 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
 「SevGame-Win64-Shipping.exe」は「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64」等にあります。
     * ue4ss  
     * dwmapi.dll  
-  
+3. 「UE4SS_Signatures_ROMEO_IS_A_DEAD_MAN.zip」をダウンロードしてください。  
+   UE4SSをUnreal Engine 5.6のゲームで動かすのに必要なファイルです。  
+   * https://github.com/forest-soft/ue4ss_signatures/releases/download/v1.0.0/UE4SS_Signatures_ROMEO_IS_A_DEAD_MAN.zip  
+4. 上記Zipファイルを解凍して出てきた以下のフォルダをUE4SSのフォルダ直下にコピーしてください。  
+   * UE4SS_Signatures
+
+   「C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64\ue4ss」フォルダの中身が以下のようになっていればOKです。  
+   ue4ss  
+   　∟Mods  
+   　∟UE4SS_Signatures  
+   　∟LICENSE  
+   　∟UE4SS.dll  
+   　∟UE4SS-settings.ini
+5. 「Rotter Paradise MOD」をダウンロードしてください。
+   * https://github.com/forest-soft/romeo_is_a_dead_man_ue4ss_mod_rotter_paradise/releases
+   リリース作る。
