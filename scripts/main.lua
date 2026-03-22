@@ -25,7 +25,7 @@ local setting_enemy8 = "ESpawnAICharaID_Walker"
 local setting_enemy9 = "ESpawnAICharaID_Walker"
 local setting_enemy10 = "ESpawnAICharaID_Walker"
 
-local setting_spawner_enemy = "ESpawnAICharaID_GekkoZombie"
+local setting_spawner_enemy = "ESpawnAICharaID_Walker"
 
 
 --[[
