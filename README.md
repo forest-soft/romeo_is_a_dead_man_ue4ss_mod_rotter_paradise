@@ -63,7 +63,7 @@ UE4SSは2026年03月22日時点の「v3.0.1-942」にて動作確認をしまし
    * C:\Program Files (x86)\Steam\steamapps\common\ROMEO IS A DEAD MAN\SevGame\Binaries\Win64  
      * ue4ss　←「2.」でコピーしたフォルダ  
        * Mods  
-         * romeo_is_a_dead_man_ue4ss_mod_rotter_paradise　←「8.」でコピーしたフォルダ  
+         * romeo_is_a_dead_man_ue4ss_mod_rotter_paradise　←「7.」でコピーしたフォルダ  
            * scripts  
              * main.lua  
            * enabled.txt  
