@@ -1,5 +1,18 @@
-print("[Rotter Paradise] OK")
+--[[
+ROMEO IS A DEAD MAN
+Rotter Paradise MOD(UE4SS)
+v1.0.0
+]]
 
+--[[
+デフォルトではロッター(内部名ではWalker)が10倍出現するようにしてあります。
+「setting_enemy1～10」の右側に書いてある「ESpawnAICharaID_Walker」を別の敵の名前に変えればロッター以外も出現させることができます。
+「setting_spawner_enemy」の行では空中に浮いてるスポナーから出てくる敵を指定できます。
+
+By default, Rotters (internal name Walker) are set to spawn 10 times more often.
+You can spawn enemies other than Rotters by changing "ESpawnAICharaID_Walker" written to the right of "setting_enemy1-10" to the name of a different enemy.
+The "setting_spawner_enemy" line allows you to specify which enemies will spawn from floating spawners.
+]]
 
 local setting_enemy1 = "ESpawnAICharaID_Walker"
 local setting_enemy2 = "ESpawnAICharaID_Walker"
@@ -12,9 +25,14 @@ local setting_enemy8 = "ESpawnAICharaID_Walker"
 local setting_enemy9 = "ESpawnAICharaID_Walker"
 local setting_enemy10 = "ESpawnAICharaID_Walker"
 
+local setting_spawner_enemy = "ESpawnAICharaID_GekkoZombie"
+
+
 --[[
 ■Enemy List
 ESpawnAICharaID_Walker：ロッター(Rotter)
+ESpawnAICharaID_WalkerHandgun：ハンドガン持ちのロッター(HandgunRotter)
+ESpawnAICharaID_WalkerRifle：ライフル持ちのロッター(RifleRotter)
 ESpawnAICharaID_TomatoHead：トマトヘッド(Tomato Head)
 ESpawnAICharaID_BuffZombie：ダンサー(Negative Dancer)
 ESpawnAICharaID_GekkoZombie：ゲッコー(Gecko)
@@ -26,6 +44,71 @@ ESpawnAICharaID_BirdZombie：フレッシュペッカー(Flesh Pecker)
 ESpawnAICharaID_PunisherPhase1：パニッシャー(Punisher)
 ESpawnAICharaID_PunisherPhase2：エクセキューショナー(Executioner)
 ESpawnAICharaID_WeakFirstRotter：弱いファーストロッター(WeakFirstRotter)
+
+
+■デフォルトの状態(ロッター10倍)
+■Default state (Rotter 10x)
+local setting_enemy1 = "ESpawnAICharaID_Walker"
+local setting_enemy2 = "ESpawnAICharaID_Walker"
+local setting_enemy3 = "ESpawnAICharaID_Walker"
+local setting_enemy4 = "ESpawnAICharaID_Walker"
+local setting_enemy5 = "ESpawnAICharaID_Walker"
+local setting_enemy6 = "ESpawnAICharaID_Walker"
+local setting_enemy7 = "ESpawnAICharaID_Walker"
+local setting_enemy8 = "ESpawnAICharaID_Walker"
+local setting_enemy9 = "ESpawnAICharaID_Walker"
+local setting_enemy10 = "ESpawnAICharaID_Walker"
+
+local setting_spawner_enemy = "ESpawnAICharaID_Walker"
+
+
+■例：ロッター3倍状態にしたい場合
+■Example: If you want to set Rotor to 3x
+local setting_enemy1 = "ESpawnAICharaID_Walker"
+local setting_enemy2 = "ESpawnAICharaID_Walker"
+local setting_enemy3 = "ESpawnAICharaID_Walker"
+local setting_enemy4 = ""
+local setting_enemy5 = ""
+local setting_enemy6 = ""
+local setting_enemy7 = ""
+local setting_enemy8 = ""
+local setting_enemy9 = ""
+local setting_enemy10 = ""
+
+local setting_spawner_enemy = "ESpawnAICharaID_Walker"
+
+
+■例：トマトヘッド、ダンサー、ゲッコーをセットで出したい場合
+■Example: If you want to release Tomato Head, Negative Dancer, and Gecko as a set.
+local setting_enemy1 = "ESpawnAICharaID_TomatoHead"
+local setting_enemy2 = "ESpawnAICharaID_BuffZombie"
+local setting_enemy3 = "ESpawnAICharaID_GekkoZombie"
+local setting_enemy4 = ""
+local setting_enemy5 = ""
+local setting_enemy6 = ""
+local setting_enemy7 = ""
+local setting_enemy8 = ""
+local setting_enemy9 = ""
+local setting_enemy10 = ""
+
+local setting_spawner_enemy = "ESpawnAICharaID_TomatoHead"
+
+
+■例：パニッシャーと戦いたい場合
+■Example: If you want to fight the Punisher
+local setting_enemy1 = "ESpawnAICharaID_PunisherPhase1"
+local setting_enemy2 = ""
+local setting_enemy3 = ""
+local setting_enemy4 = ""
+local setting_enemy5 = ""
+local setting_enemy6 = ""
+local setting_enemy7 = ""
+local setting_enemy8 = ""
+local setting_enemy9 = ""
+local setting_enemy10 = ""
+
+local setting_spawner_enemy = "ESpawnAICharaID_PunisherPhase1"
+
 ]]
 
 
@@ -45,7 +128,7 @@ ESpawnAICharaID_WeakFirstRotter：弱いファーストロッター(WeakFirstRot
 
 
 
-
+print("[Rotter Paradise] OK")
 
 ExecuteInGameThread(function()
 	
@@ -315,7 +398,24 @@ ExecuteInGameThread(function()
 	]]
 end)
 
+
 -- スポナーから出てくる敵を書き換える。
+local spawner_enemy_id_mapping = {
+	ESpawnAICharaID_Walker = 1,
+	ESpawnAICharaID_WalkerHandgun = 2,
+	ESpawnAICharaID_WalkerRifle = 3,
+	ESpawnAICharaID_TomatoHead = 4,
+	ESpawnAICharaID_BuffZombie = 6,
+	ESpawnAICharaID_GekkoZombie = 7,
+	ESpawnAICharaID_TankZombie = 5,
+	ESpawnAICharaID_Mantis = 11,
+	ESpawnAICharaID_Jelly = 10,
+	ESpawnAICharaID_ZombieBlack = 8,
+	ESpawnAICharaID_BirdZombie = 9,
+	ESpawnAICharaID_PunisherPhase1 = 14,
+	ESpawnAICharaID_PunisherPhase2 = 15,
+	ESpawnAICharaID_WeakFirstRotter = 12,
+}
 NotifyOnNewObject("/Game/Blueprint/Object/DimensionEyeSpawnEnemy/BP_DimensionEyeSpawnEnemy.BP_DimensionEyeSpawnEnemy_C", function(target_object)
 	if target_object:IsValid() then
 	
@@ -343,10 +443,10 @@ NotifyOnNewObject("/Game/Blueprint/Object/DimensionEyeSpawnEnemy/BP_DimensionEye
 			for i = 1 , id_length do
 				-- 「1」はWalker
 				-- 「4」はTomatoHead
-				patch_target_object.mEnemyCharaIDs[i] = 1
+				patch_target_object.mEnemyCharaIDs[i] = spawner_enemy_id_mapping[setting_spawner_enemy]
 				
-				patch_target_object.mEnemyCharaIDs[id_length + i] = 1
-				patch_target_object.mEnemyCharaIDs[(id_length * 2) + i] = 1
+				patch_target_object.mEnemyCharaIDs[id_length + i] = spawner_enemy_id_mapping[setting_spawner_enemy]
+				patch_target_object.mEnemyCharaIDs[(id_length * 2) + i] = spawner_enemy_id_mapping[setting_spawner_enemy]
 			end
 			
 			--[[
