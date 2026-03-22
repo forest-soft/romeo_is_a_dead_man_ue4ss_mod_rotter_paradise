@@ -1,6 +1,6 @@
 # ROMEO IS A DEAD MAN：Rotter Paradise MOD(UE4SS)
 
-ここに画像
+![(READMEサムネ.png)](https://raw.githubusercontent.com/forest-soft/romeo_is_a_dead_man_ue4ss_mod_rotter_paradise/refs/heads/main/README%E3%82%B5%E3%83%A0%E3%83%8D.png)
 
 ショッピングモールに大量のゾンビ！  
 でも本作で出てくるゾンビはちょっと数が少なくて寂しいですよね？！  
